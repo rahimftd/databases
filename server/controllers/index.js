@@ -9,7 +9,6 @@ module.exports = {
     }, // a function which handles a get request for all messages
     post: function (req, res) {
       var data = req.body;
-      console.log(data);
       models.messages.post(data);
       res.send();
     } // a function which handles posting a message to the database
@@ -17,10 +16,11 @@ module.exports = {
 
   users: {
     // Ditto as above
-    get: function (req, res) {},
+    get: function (req, res) {
+      res.status(404).send('<h1>PAGE NOT FOUND</h1>');
+    },
     post: function (req, res) {
       var data = req.body;
-      console.log('------------------', data);
       models.users.post(data);
       res.send();
     }
